@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="motion"></div>
+    <br>
+    <div id="colorscheme"></div>
+    <script>
+        const motionPreference = window.matchMedia(`(prefers-reduced-motion: reduce)`);
+        say(`motion`, motionPreference);
+        motionPreference.addEventListener(`change`, () => {
+            say(`motion`, motionPreference);
+        });
+
+        const colorScheme = window.matchMedia(`(prefers-color-scheme: dark)`);
+        say(`colorscheme`, colorScheme);
+        colorScheme.addEventListener(`change`, () => {
+            say(`colorscheme`, colorScheme);
+        });
+
+        function say(selector, mediaObj) {
+            console.log(mediaObj.media, mediaObj.matches);
+            document.getElementById(selector).innerText = `${mediaObj.media} ${mediaObj.matches}`;
+        }
+    </script>
+</body>
+
+</html>

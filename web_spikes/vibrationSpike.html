@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vibration Spike</title>
+  </head>
+  <body>
+    <button class="click">Click Me</button>
+    <div id="diagnostic"></div>
+    <script type="text/javascript">
+      function vibrate() {
+        if (!("vibrate" in window)) {
+          alert("Your browser does not support device vibration. :(");
+          return;
+        }
+        const diag = document.querySelector("#diagnostic");
+        // vibrate pattern is a single integer for a single vibration
+        // an array of integers in the pattern of [duration, pause,*]
+        // send 0 to cancel all active vibrations
+        if (window.navigator.vibrate([100, 30, 200]))
+          diag.innerHTML = "Vibrate worked!";
+        else diag.innerHTML = "Vibration failed :(";
+      }
+      document.querySelector(".click").addEventListener("click", (event) => {
+        vibrate();
+      });
+    </script>
+  </body>
+</html>

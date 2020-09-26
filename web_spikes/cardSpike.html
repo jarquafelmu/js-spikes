@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zener Card</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            min-height: 100%;
+            min-width: 100%;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .card::after {
+            content: "";
+            border: 2px solid blue;
+            display: block;
+            width: 132px;
+            height: 212px;
+            /* background-size: 130px 212px; */
+        }
+
+        .circle::after {
+            background-image: url('../assets/svg/zener_cards.svg');
+            background-position: -20px -21px;
+            background-repeat: no-repeat;
+        }
+
+        .plus::after {
+            background-image: url('../assets/svg/zener_cards.svg');
+            background-position: -160px -20px;
+            background-repeat: no-repeat;
+        }
+
+        .waves::after {
+            background-image: url('../assets/svg/zener_cards.svg');
+            background-position: -300px -20px;
+            background-repeat: no-repeat;
+        }
+
+        .square::after {
+            background-image: url('../assets/svg/zener_cards.svg');
+            background-position: -470px -20px;
+            background-repeat: no-repeat;
+        }
+
+        .star::after {
+            background-image: url('../assets/svg/zener_cards.svg');
+            background-position: -580px -20px;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- <div class="card circle"></div> -->
+        <!-- <div class="card plus"></div> -->
+        <!-- <div class="card waves"></div> -->
+        <!-- <div class="card square"></div> -->
+        <!-- <div class="card star"></div> -->
+        <div class="card star"> </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="btn zener-card">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime in reprehenderit corrupti facilis nam, ipsa
+            aspernatur alias error architecto illum ratione provident illo ducimus ab itaque dolor possimus explicabo
+            totam veritatis expedita. Recusandae cupiditate eius quos culpa inventore aliquid modi blanditiis iusto
+            totam, sint quibusdam molestiae accusantium voluptate iste alias.</p>
+    </div>
+    <script type="text/javascript">
+        document.querySelectorAll('.btn.zener-card').forEach(element => {
+            element.addEventListener('click', (event) => {
+                const id = event.target.id;
+                event.target.dispatchEvent(new CustomEvent('awesome', {
+                    bubbles: true,
+                    detail: {
+                        target: event.target,
+                        text: event.target.innerHTML
+                    }
+                }))
+            });
+        });
+
+        // listen for event
+        document.addEventListener('awesome', (e) => {
+            console.log('target', event.detail.target);
+            console.log('body', event.detail.text);
+        })
+    </script>
+</body>
+
+</html>
+</head>
+
+</html>

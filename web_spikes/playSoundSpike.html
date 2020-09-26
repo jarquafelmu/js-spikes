@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Play Sound Spike</title>
+</head>
+
+<body>
+  <button id="btnHappy" class="click">Click Me :)</button>
+  <button id="btnSad" class="click">Click Me :(</button>
+  <audio id="sndSuccess">
+    <source src="../assets/snd/success-sound-effect.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+  <audio id="sndFail">
+    <source src="../assets/snd/game-fail-sound-effect.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+  <script type="text/javascript">
+    function playSound(btn) {
+      if (btn.id === "btnHappy") document.querySelector("#sndSuccess").play();
+      else if (btn.id === "btnSad") document.querySelector("#sndFail").play();
+    }
+    document.querySelectorAll(".click").forEach((item, index) => {
+      item.addEventListener("click", (event) => {
+        playSound(event.target);
+      });
+    });
+  </script>
+</body>
+
+</html>

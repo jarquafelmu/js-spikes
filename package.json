@@ -1,0 +1,22 @@
+{
+  "name": "js-spikes",
+  "version": "1.0.0",
+  "description": "a collection of spikes to quickly show how to do various aspects in the javascript language",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jarquafelmu/js-spikes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jarquafelmu/js-spikes/issues"
+  },
+  "homepage": "https://github.com/jarquafelmu/js-spikes#readme",
+  "dependencies": {
+    "chalk": "^4.1.0"
+  }
+}

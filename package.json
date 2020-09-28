@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/jarquafelmu/js-spikes#readme",
   "dependencies": {
-    "chalk": "^4.1.0"
+    "chalk": "^4.1.0",
+    "vue": "^2.6.12",
+    "vue-cookies": "^1.7.4"
   }
 }

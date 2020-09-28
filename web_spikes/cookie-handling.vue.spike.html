@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <label for="cookieSetter">Set cookie</label>:
+        <input type="text" v-model="content" name="cookieSetter" id="cookieSetter">
+        <input type="color" name="colorSelector" @change="changeBackground" v-model="color" id="colorSelector">
+        <input type="button" value="Set" @click="process">
+
+        <h1>From inputbox</h1>
+        <h2>{{content}}</h2>
+        <br />
+        <h1>From cookie</h1>
+        <h2>{{cookiecontent}}</h2>
+        <br />
+        <h1>Background color</h1>
+        <h2>{{color}}</h2>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script>
+        // https://www.npmjs.com/package/js-cookie
+
+        const vm = new Vue({
+            el: `#app`,
+            data: {
+                content: 'im not set',
+                cookiecontent: '',
+                color: '#ffffff'
+            },
+            created: function () {
+                this.getCookie();
+            },
+            methods: {
+                process: function () {
+                    // if (!cookievalue) {
+                    //     console.log(`no cookie found, setting value`)
+                    //     cookievalue = `i'm a cookie!`
+                    // } else {
+                    //     console.log(`cookie found with value: ${cookievalue}`)
+                    // }
+                    Cookies.set('name', vm.content, { expires: 7 });
+                    vm.cookiecontent = Cookies.get('name');
+
+                    // vm.cookiecontent = Cookies.get('name');
+                },
+                changeBackground: function () {
+                    const body = document.querySelector('body')
+                    console.log("body", body.style.backgroundColor)
+                    body.style.backgroundColor = vm.color
+                },
+                getCookie: function () {
+                    this.cookiecontent = Cookies.get('name');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
